@@ -1,0 +1,23 @@
+.conta {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 1rem;
+}
+
+.UserGraphic {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 3rem;
+}
+
+
+@media (max-width:1020px){
+    .conta {
+        grid-template-columns: 1fr;
+    }
+    .UserGraphic {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+}

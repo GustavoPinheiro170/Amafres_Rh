@@ -1,0 +1,19 @@
+.footer{
+    border-top: 0.1px solid #ccc;
+    background-color: #eee;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.footer ul {
+    align-items: center;
+}
+.footer li {
+    display: inline-flex;
+    margin: 10px;   
+    justify-content: space-between;
+}
+.footer img {
+    width: 18px;
+    height: 18px;
+}

@@ -1,0 +1,10 @@
+.Graphic {
+    box-shadow: 0px 1px 10px grey;
+    height: 90%;
+}
+@media (max-width:800px) {
+ .Graphic {
+     height: 50vh;
+     width: 100vw;
+ }   
+}

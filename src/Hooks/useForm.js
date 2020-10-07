@@ -22,7 +22,7 @@ const useForm = (type) => {
 
     function validate(value){
         if(type === false) return true;
-        if(value.lenght === 0 ){
+        if(value.lenght === '' ){
             setError('Preencha um valor');
             return false;
         }else if(types[type] && !types[type].regex.test(value)){

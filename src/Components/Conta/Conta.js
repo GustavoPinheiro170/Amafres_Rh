@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Conta.module.css';
 import UserStats from './UserStats';
+import UserTraffic from './UserTraffic';
 import { Route, Routes } from 'react-router-dom';
 import CarteiraVirtual from './CarteiraVirtual/CarteiraVirtual';
 import RedeCredenciada from './RedeCredenciada/RedeCredenciada';
@@ -10,10 +11,8 @@ const NavBarConta = React.lazy(() =>  import('./NavBarConta'));
 
 const Conta = () => {
     
-
     return ( 
         <main>
-
         <div className={styles.conta}>
         <React.Suspense fallback={<div>Carregando</div>}>
         <NavBarConta />
@@ -24,8 +23,13 @@ const Conta = () => {
                 <Route path='/' element={
                 <div className={styles.UserGraphic}>
                 <UserStats />
-                <div classNmae={styles.perfilUsuario}>
-                <h3 className='title_small'> Perfil </h3>
+                <div className={styles.perfilUsuario}>
+                <h3 className='title_small'> Valor utilizado </h3>
+                <UserTraffic />
+                </div>
+                <div className={styles.perfilUsuario}>
+                <h3 className='title_small'> Acessos </h3>
+          
                 </div>
                 </div>
             } />

@@ -16,10 +16,11 @@ const UserStats = ({dados}) => {
 
     return (
       <div>
-        <h3 className='title_small'>Estátisticas de uso</h3>
+        <h3 className='title_small'>Atendimentos</h3>
         <div className={`${styles.Graphic} animeLeft`}>
         
         <VictoryChart
+        animate={{duration: 500}}
         theme={VictoryTheme.material} 
         domainPadding= {20}
         >
@@ -37,7 +38,18 @@ const UserStats = ({dados}) => {
         <VictoryBar
             data={date} 
             x="quarter" 
-            y="earnings"/>
+            y="earnings"
+            animate={{
+              onExit: {
+                duration: 500,
+                before: () => ({
+                  _y: 0,
+                  fill: "orange",
+                })
+              }
+            }}
+            
+            />
 
 
 

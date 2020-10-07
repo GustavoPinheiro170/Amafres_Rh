@@ -4,7 +4,7 @@ const RedeCredenciada = () => {
 
         return (
             <div className='animeLeft'>
-                Rede Credênciada
+               <h4 className='title_small'> Rede Credênciada</h4>
             </div>
         );
 }

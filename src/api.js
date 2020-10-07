@@ -3,10 +3,17 @@ const baseUrl= 'http://localhost:3010';
 
 export function TOKEN_POST(body) {
     return {
-        url: baseUrl +'/usuario',
+        url: baseUrl +`/usuario?inscricao=${body}`,
         options: {
             method: 'GET',           
         },
+    }
+}
+
+export function USER_GET(token){
+    return {
+        url: baseUrl +`/usuario?nome=${token}`,
+        options: {method: 'GET' },
     }
 }
 
@@ -25,9 +32,3 @@ export function TOKEN_VALIDATE_POST(token) {
 
 
 
-export function USER_GET(token){
-    return {
-        url: baseUrl +'/usuario',
-        options: {method: 'GET' },
-    }
-}

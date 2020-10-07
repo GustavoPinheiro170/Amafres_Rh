@@ -26,10 +26,10 @@ export const UserStorage = ({children}) => {
 
 
     async function getUser(token){
-        const {url} = USER_GET({token});
+        const {url} = USER_GET(token);
         const response = await fetch(url); 
         const json = await response.json();
-        setData(json);
+        setData(json[0]);
         setLogin(true);
     }
 
@@ -37,17 +37,34 @@ export const UserStorage = ({children}) => {
         try {
             setError(null);
             setLoading(true);
-            const {url, options} = TOKEN_POST({username, password});
+
+            const {url, options} = TOKEN_POST(username);
+
             const tokenRes = await fetch(url, options);
+
+            const returnFetch = await  tokenRes.json();
+
+            const inscValue = returnFetch[0].inscricao;
+
+            const  passValue = returnFetch[0].senha;
+
+            const nome = returnFetch[0].nome;
+
+            if(username !== inscValue || password !== passValue )  return setError('Verifique suas credenciais');
+            if(username === '' && password === '' ) { return false } 
+            else {
+
             // if(tokenRes.ok) throw new Error(`${tokenRes.statusText}`);
-            const {nome} = await tokenRes.json();
+  
             localStorage.setItem('Username', nome);
+
             getUser(nome);
+
             navigate('/Conta');
-           
+            } ; 
             
     } catch (err){
-        setError(err.message);
+        setError('Verifique suas credenciais');
         setLogin(false);
         
 

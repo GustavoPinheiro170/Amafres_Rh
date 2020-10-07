@@ -17,9 +17,9 @@ export default class CarteiraVirtual  extends React.Component {
             <div className={styles.gridCard}>
                 <div className={styles.carteira}>
                 <div className={styles.contentCarteira}>
-                    <p><strong>Gustavo Pinheiro Campos</strong></p>
+                    <p><strong>José Oliveira Campos</strong></p>
                     <div className={styles.contentDados}>
-                    <p><strong>CPF:</strong> 413.434.958-30</p>
+                    <p><strong>CPF:</strong> 999.999.999-99</p>
                     <p><strong>Dt Nasc:</strong> 27/06/1996</p>
                     <p><strong>CNB:</strong> 7005045908002459</p>
                     <p><strong>Adesão:</strong> 27/06/1996</p>
@@ -28,14 +28,14 @@ export default class CarteiraVirtual  extends React.Component {
                     <p><strong>Acomodação: </strong>Enfermaria</p>
                     <p><strong>Contrato: </strong>Coletivo</p>
                     <p><strong>Abrangência:</strong> São Paulo</p>
-                    <p><strong>Cobrança: </strong>Isento</p>
+                    <p><strong>Cobrança:  </strong> Isento</p>
                     </div>
                     </div>
                  </div>
                 <div className={styles.carteiraVerso}>
+                <p style={{marginTop: '10%', textAlign: 'center'}}><strong>Gustavo Pinheiro Campos</strong></p>
                 <div className={styles.contentCarteiraVerso}>
-                <p>Nome: Gustavo Pinheiro Campos</p>
-                <p>CPF: 413.434.958-30</p>
+                <p>CPF: 999.9999.999-99</p>
                 <p>Dt Nasc: 27-06-1996</p>
                 </div>
                      </div>

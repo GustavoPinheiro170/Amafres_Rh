@@ -16,7 +16,7 @@ const  HandleChange = ({target}) =>  {
    return  target.innerText
 }
     return (
-        <>
+        <div className='DadosPessoais'>
         <div ref={ref}>
         <HeaderTitlePrint title='Meus Dados' reference={ref} filename='Meus Dados - Amafresp' />
         <div className={`${styles.containerDados} animeLeft`} >
@@ -49,7 +49,7 @@ const  HandleChange = ({target}) =>  {
            </div>
            <Button >Alterar</Button>
         </div>
-       </>
+       </div>
       
         );
 };

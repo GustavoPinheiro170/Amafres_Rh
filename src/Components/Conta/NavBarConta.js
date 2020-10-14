@@ -35,13 +35,14 @@ const NavbarConta = () =>{
     return (
         <div>
         <div style={{height: '55px'}} className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
-        <FaBars />
+        <FaBars className='iconFabar' />
         </div>
       <ProSidebar
         collapsed={collapsed}
         toggled={toggled}
         breakPoint="md"
         onToggle={handleToggleSidebar}
+        onKeyPress={handleToggleSidebar}
       >
         <SidebarHeader>
           <div

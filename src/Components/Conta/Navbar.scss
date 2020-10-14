@@ -16,6 +16,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+@media (max-width: 1020px){
+.pro-sidebar.md {
+    position: fixed;
+    left: -270px;
+}
+}
+
 #root {
   height: 100%;
 }
@@ -23,6 +30,10 @@ body {
   margin: 5px;
   width: 2em;
   height: 2em;
+}
+
+.iconFabar{
+  z-index: 10;
 }
 
 .app {
@@ -197,7 +208,7 @@ body {
   }
 }
 
-@media (min-width:800px){
+@media (min-width:900px){
     .btn-toggle{
         display: none !important;
     }

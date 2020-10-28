@@ -36,6 +36,28 @@ a {
     text-decoration: none;
     color: #333;
 }
+
+.Input_error__qUQyx {
+    display: flex;
+    position: relative;
+    color: red;
+    padding: 10px;
+    background-color: #fff2f2;
+    border: 0.1px #ccc; 
+    text-align: right; 
+    align-items: center;
+
+}
+
+.Input_error__qUQyx::before{
+    content: '✕';
+    display: block;
+    font-size: 20px;
+    border-radius: 50%;
+    margin: 10px;
+
+
+}
 .container {
     max-width: 50rem;
     padding: 0 1rem;
@@ -106,10 +128,18 @@ a {
     width: 50%;
 
 }
+.container-internal {
+    padding-top: 4rem;
+}
 
 @keyframes animeLeft {
     to{
         opacity: 1;
         transform: initial;
+    }
+}
+@media(min-width:800px){
+    body {
+        padding-top: 0 !important;
     }
 }

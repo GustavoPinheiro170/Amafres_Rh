@@ -1,0 +1,10 @@
+.Graphic {
+    border-bottom: 0.2px solid #eee;
+    height: 90%;
+}
+@media (max-width:800px) {
+ .Graphic {
+     height: 50vh;
+     width: 100vw;
+ }   
+}

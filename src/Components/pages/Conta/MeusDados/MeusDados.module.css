@@ -1,0 +1,28 @@
+
+.col6 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+}
+.col3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+}
+.flexItem {
+    flex: 1;
+}
+
+@media(max-width:800px){
+    .containerDados{
+        max-width:600px;
+    } 
+    .col6{
+        flex-direction: column;
+    }
+    .col3 {
+        flex-direction: column;
+    }
+}

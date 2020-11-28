@@ -13,6 +13,9 @@
     align-items: center;
     height: 4rem;
 }
+.logoImg{
+    max-width: 120px;
+}
 .nomeLogin{
     display: flex;
 }
@@ -63,5 +66,14 @@
    position: relative;
    top: -1px;
 }
+.iconFabar{
+    z-index: 10;
+  }
+
+  @media (max-width: 1200px) {
+      .logo {
+          display: none;
+      }
+  }
 
 

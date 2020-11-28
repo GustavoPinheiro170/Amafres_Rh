@@ -28,7 +28,7 @@ body {
 }
 .btn-toggle svg{
   margin: 5px;
-  width: 2em;
+  width: 5em;
   height: 2em;
   border-radius: 5px;
   border: 0.1px solid gray;
@@ -36,14 +36,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
+  margin-left: auto;
   right: 0;
   cursor: pointer;
+  margin-right: auto;
 }
 
-.iconFabar{
-  z-index: 10;
-}
+
 
 .app {
   height: 100%;
@@ -198,7 +197,9 @@ body {
     }
   }
 }
-
+.filterLogo{
+  filter: brightness(21.5);
+}
 .badge {
   padding: 3px 6px;
   font-size: 9px;
@@ -224,10 +225,10 @@ body {
       margin-top: 10px;
       z-index: 10;
   }
-}
 
-@media (min-width:1020px){
-    .btn-toggle{
-        display: none !important;
-    }
+}
+@media (min-width:800px){
+  .iconFabar{
+      display: none;
+  }
 }

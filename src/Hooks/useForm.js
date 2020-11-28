@@ -31,7 +31,7 @@ const useForm = (type) => {
     const [error, setError] = React.useState('');   
     
     function covertCPFinMask(value){
-        if(type === 'text')
+        if(type === 'text' || type === 'confirmcpf')
         setValue(cpfMask(value))
       
     }

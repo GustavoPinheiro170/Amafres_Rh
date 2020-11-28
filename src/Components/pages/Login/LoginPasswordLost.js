@@ -1,4 +1,5 @@
 import React from 'react';
+import { replaceCPF } from '../../../Hooks/maskcpf';
 import useForm from '../../../Hooks/useForm';
 import { UserContext } from '../../../UserContext';
 import Button from '../../Form/Button';
@@ -6,13 +7,14 @@ import Input from '../../Form/Input';
 
 
 const LoginPasswordLost = () => {
-    const { error, loading} = React.useContext(UserContext);
+    const { error, loading, resetPassword} = React.useContext(UserContext);
 
-    const email = useForm('email');
+    const cpf = useForm('text');
     
     async function handleSubmit(event) {
         event.preventDefault();
-        if(email.validate()){
+        if(cpf.validate()){
+            resetPassword(replaceCPF(cpf.value));
         }
     }
 
@@ -20,7 +22,7 @@ const LoginPasswordLost = () => {
     <section className='animeLeft'>
          <h1 className='title'>Redefinir Senha</h1>
          <form action='' onSubmit={handleSubmit}>
-             <Input  type='email' label='E-mail' name='email' {...email} />
+             <Input  type='text' label='Insira seu CPF para receber uma nova senha' name='cpf' {...cpf} />
              {loading ?  (<Button disabled>Carregando...</Button>
              ): (<Button>Enviar</Button>)}
                 

@@ -1,0 +1,28 @@
+
+.internal {
+    display: block;
+}
+.container_contatos {
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 15%;
+    margin-left: 10%;
+
+}
+
+
+.container_contatos p{
+    padding: 5px;
+
+
+}
+
+@media(max-width:800px){
+    .container_contatos {
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,241 @@
+
+
+.container_credenciados{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex: 1;
+
+}
+.container_credenciados label {
+    font-size: 16px;
+    color: gray;
+    margin: 5px;
+    padding: 4px;
+
+}
+.container_credenciados select {
+    font-size: 14px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 2px solid #7ed1c2;
+    padding: 5px;
+}
+
+.internal{
+    border-right: 0.1px solid #eee;
+    padding: 5px;
+    max-width: 500px;
+
+}
+
+.internal img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qualificacoes h4 {
+    margin-top: 10px;
+    color: #125d50;
+}
+
+.qualificacoes p {
+    display: inline-block;
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+
+}
+
+.infoGerais {
+    border-top: 0.1px solid gray;
+    padding-top: 10px;
+}
+.infoGerais h4{
+        margin-bottom: 10px;
+        color: #125d50;
+}
+.infoGerais p {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+.internal select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.internal input {
+    border: none;
+    border-bottom: 0.1px solid #eee;
+    font-size: 13px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    background-color: #eee;
+    width: 100%;
+    margin-top: 5px
+
+}
+.title_indicador{
+    background-color: #eee;
+    width: 100%;
+    color: #125d50;
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 6px -2px grey;
+
+}
+.title_indicador svg {
+    margin-right: 10px;
+    padding-top: 5px;
+}
+.container_result{
+    width: 100%;
+    position: relative;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+.container_result span {
+    position: absolute;
+    right:10%;
+    top: 0%;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 0.1px solid gray;
+    padding: 2px 9px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.container_result span:hover{
+    background-color: rgb(13, 117, 82);
+    color: white;
+}
+
+.loadingSpinner {
+    margin-left: 10%;
+}
+.container_result img {
+    position: absolute;
+    left: 30%;
+    z-index: -99;
+    right: 0;
+    bottom: 0;
+    top: 15%;
+}
+.container_filters{
+    display:flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.1px solid  #eee;
+    border-right: 0.1px solid #eee;
+}
+
+.resultsFilter{
+    display: block;
+    border-left: 0.1px solid #eee;
+    padding: 10px;
+    width: 70%;
+}
+.resultsFilter h2 {
+    font-size: 20px;
+    color: #125d50;
+}
+
+.resultsFilter h3{
+    font-size: 17px;
+}
+.resultsFilterNumber {
+    font-size: 15px;
+    color: #125d50;
+    margin-right: 10%;
+    border-left: 0.1px solid #eee;
+    padding: 20px;
+    width: 35%;
+}
+.resultsFilter h3, 
+.resultsFilterNumber h3{
+    margin-bottom: 10px;
+}
+
+.resultsFilter p {
+    font-size: 15px;
+}
+
+
+.especialidades {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+}
+.especialidades p {
+    margin: 5px;
+    font-size: 12px;
+}
+
+.buttonInfo {
+    border-top: 0.1px solid gray;
+    width: 100%;
+    padding: 10px;
+}
+.buttonInfo button{
+    font-size: 12px;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(17, 160, 136);
+    color: white;
+    cursor: pointer;
+
+}
+.searchingLoad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+form > p {
+    color: red;
+    padding: 10px;
+    background-color: #eee;
+    border: 0.1px #ccc;
+    margin-bottom: 20px;
+}
+
+.searchingLoad img {
+    width: 50%;
+    margin-top: 2%;
+   
+
+}
+@media(max-width:800px){
+    .container_filters{
+        flex-direction: column;
+    }
+    .container_credenciados{
+        flex-direction: column;
+    }
+    .internal{
+        width: 100%;
+    }
+    .internal select {
+        width: 100%;
+    }
+    .resultsFilter{
+        width: 100%;
+    }
+    .resultsFilterNumber{
+        width: 100%;
+    }
+}

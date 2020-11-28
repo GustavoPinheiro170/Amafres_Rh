@@ -11,7 +11,7 @@ const FirstAcess = () => {
     const { error, loading, firtAcess} = React.useContext(UserContext);
 
     const email = useForm('email');
-    const senha = useForm('');
+    const senha = useForm('newpass');
     const username  = useForm('text');
 
     async function handleSubmit(event) {

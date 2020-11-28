@@ -1,12 +1,14 @@
 import React from 'react';
-import HeaderTitlePrint from '../../../Head/Prints';
-import styles from './MeusDados.module.css';
 import Input from '../../../Form/Input';
-import { UserContext } from '../../../../UserContext';
 import Button from '../../../Form/Button';
+import styles from './MeusDados.module.css';
 
-import {formatCPF, formatNascimento} from '../../../../Hooks/dataFormat';
+import { ALTER_PASS } from '../../../../api';
 import useForm from '../../../../Hooks/useForm';
+import HeaderTitlePrint from '../../../Head/Prints';
+import { UserContext } from '../../../../UserContext';
+import {formatCPF, formatNascimento} from '../../../../Hooks/dataFormat';
+
 
 
 const MeusDados = () => {
@@ -15,43 +17,62 @@ const MeusDados = () => {
     const pass = useForm("pass");
 
     
-    const {dados, error, setError, loading, newPassword} = React.useContext(UserContext);
+    const {dados, error, setError, loading} = React.useContext(UserContext);
     const cpf = formatCPF(dados);
     const nascimento = formatNascimento(dados);
 
     const  [passwordAtual, setPasswordAtual] = React.useState('')
     const  [newPasswordTwo, setNewPasswordTwo] = React.useState('')
-
+    const  [success , setSuccess] = React.useState(null);
 
 
     const  HandleChange = ({target}) =>  { return  target.innerText  }
-
     
-    const SubmitPost = (event) =>  {
+
+    async function SubmitPost (event) {
         event.preventDefault();
-
         if(newpass.validate() && pass.validate()){
+            
+            if (newpass.value === '' && newPasswordTwo === '' ) {
+                setError('Preencha os campos para alterar a senha')
+                setSuccess(null);
+                return false;
+            }
+            if (newpass.value !== newPasswordTwo ){
+                setError('Verifique se os campos são semelhantes')
+                setSuccess(null);
+                return false;
+            }
 
-            if( newpass.value === '' && newPasswordTwo === '' ){
-                setError('Favor preencher os campos necessários');
-                return false;
-             }else if (newpass.value !== newPasswordTwo ){
-                setError('Verifique se os campos são semelhantes');
-                return false;
-             }  
-            else{
-            newPassword(newpass.value)
-            setError(null);
-            setPasswordAtual('');
-            setNewPasswordTwo('');
-            return true;
+            if (newpass.value === pass.value) {
+                setError('Não é possível utilizar uma das senhas anteriores')
+            }
+
+            const {url, options } = ALTER_PASS(dados.CPF, newpass.value, pass.value);
+            const response = await fetch(url, options);
+            const json = await response.json();
+            console.log(json);
+            try {    
+       
+            if (json.StatusCode !== 200) throw new Error(json.Message)
+            else  setSuccess('Senha alterada com sucesso!')    
+            }   
+             
+            catch (err) {
+                setError(err.message)
+
+            } finally{
+                newpass.value = '';
+                pass.value = '';
+                setNewPasswordTwo('');       
             }
         }
-        
     }
+        
+    
 
     return (
-        <div className='DadosPessoais container-internal'>
+        <div className=' animeLeft DadosPessoais container-internal'>
         <div ref={ref}>
         <HeaderTitlePrint title='Meus Dados' reference={ref} filename='Meus Dados - Amafresp' />
         <div className={`${styles.containerDados} animeLeft`} >
@@ -64,14 +85,14 @@ const MeusDados = () => {
             name='NomeCompleto' 
             value={dados && dados.nome} 
             onChange={HandleChange}
-            
             />
+
            <Input 
            type='text' 
            className={styles.flexItem} 
            label='Inscrição' 
            name='Inscrição' 
-           value={dados && dados.inscricao}  
+           value={dados && dados.codigo}  
            onChange={HandleChange}/>     
            </div>
            
@@ -99,7 +120,7 @@ const MeusDados = () => {
             className={styles.flexItem}
             label='Acomodação'
             name='acomodacao'
-            value='Enfermaria'
+            value={dados && dados.plano}
             onChange={HandleChange} 
             />
             
@@ -164,6 +185,7 @@ const MeusDados = () => {
            {loading ?  (<Button disabled>Carregando...</Button>
              ): (<Button>Alterar</Button>)}
            {error && <p>{error}</p>}
+           {success && <p className={styles.successInfo}>{success}</p>}
         </form>
             </div>
    

@@ -1,38 +1,64 @@
 
 
+select {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #7ed1c2;
+}
+
+.carteiraVirtual{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 20px;  
+}
+
+.carteiraVirtual  select {
+    height: 40px;
+    width: 50%;
+}
 .carteira{
     position: relative;
     padding: 10px;
-    width: 60%;
-    height: 350px;
+    width: 100%;
+    height: 290px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     border: 0.1px solid #ccc;
-    background: url('../../../../Assets/amafresp.jpg') no-repeat bottom left #fbfafa;
+    object-fit: cover;
+    background-image: url('../../../../Assets/Capa_carteirinha.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 99;
-    background-size: 30%;
 
 }
 .carteira strong {
+    display: block;
+}
+.carteiraVerso strong {
     display: block;
 }
 
 .carteira::before{
     content: '';
     position: absolute;
-    background-color: #3384ff;
     right: 0;
     bottom: 0;
-    width: 300px;
-    height: 60px;
-    border-radius: 100px 0px 10px 0px;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;
+  
+    
     
 }
 .contentCarteira {
     margin: 20px;
 }
 .contentCarteira p {
+    font-size: 14px;
     color: black;
     padding: 5px;
 }
@@ -45,49 +71,30 @@
 }
 
 
-.carteira::after{
-    content: '';
-    position: absolute;
-    background-color: #79a8ef;
-    right: 0;
-    bottom: 0;
-    width: 310px;
-    height: 70px;
-    z-index: -1;
-    border-radius: 100px 0px 10px 0px;
-    
-}
-
 .gridCard{
     display: grid;
-    grid-template-columns: 1fr;
     gap: 1rem;
 }
+
 .carteiraVerso{
     position: relative;
     padding: 10px;
-    width: 60%;
-    height: 350px;
+    width: 100%;
+    height: 290px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     border: 0.1px solid #ccc;
-}
-.carteiraVerso::after{
-    content: '';
-    position: absolute;
-    background-color: #272626;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    z-index: -1;
-    border-radius: 10px 10px 0px 0px;
-    
+    object-fit: cover;
+    background-image: url('../../../../Assets/Back_carteirinha.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99;
 }
 
+
 .contentCarteiraVerso{
-    margin-top: 10%;
+    margin-top: 3%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-size: 14px;
@@ -99,7 +106,25 @@
 
 }
 
-
+.internal_convenio {
+    margin: 5px;
+    margin-top: 10px;
+}
+.internal_convenio p {
+    font-size: 10px;
+    margin:0
+}
+.informacao_emergencial {
+    display: flex;
+    justify-content: space-between;
+}
+.informacao_emergencial img {
+   margin-top: -20px;
+}
+.informacao_emergencial p{
+    margin-top: 10px;
+    font-size: 12px;
+}
 
 .modal {
     position: absolute;
@@ -118,6 +143,7 @@
 @media (max-width:500px){
     .carteiraVerso {
         display: none;
+    
     }
     .carteira {
         display: none;
@@ -126,6 +152,7 @@
 @media (min-width:501px ){
     .carteiraVerso {
         display: block;
+        
     }
     .carteira {
         display: block;
@@ -133,6 +160,7 @@
     .modal {
         display: none;
     }
+
 }
 
 
@@ -147,7 +175,10 @@
         width: 500px;
     }
 
-    .carteira{
+    .carteiraVerso{
         width: 500px;
+    }
+    .carteiraVirtual{
+        flex-direction: column-reverse;
     }
 }

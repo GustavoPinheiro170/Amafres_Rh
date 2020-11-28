@@ -11,30 +11,26 @@ import {
 import { 
          FaTachometerAlt,
          FaRegLaughWink,
-         FaBars,
          FaUserCog,
-         FaFileInvoice
+         FaFileInvoice,
+         FaPhone
          } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
 import './Navbar.scss';
+import { UserContext } from '../../../UserContext';
+import Logo from '../../../Assets/amafresp.png';
 
 
 
 const NavbarConta = () =>{
-    const [toggled, setToggled] = React.useState(false);
+  const {toggled, handleToggleSidebar} = React.useContext(UserContext);
+
     const [collapsed] = React.useState(false);
 
 
-
-    const handleToggleSidebar = (value) => {
-        setToggled(value);
-      };
-    
-
     return (
         <div>
-        <div style={{height: '55px'}} className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
-        <FaBars className='iconFabar' />
+        <div className="btn-toggle" >
         </div>
       <ProSidebar
         collapsed={collapsed}
@@ -57,7 +53,7 @@ const NavbarConta = () =>{
 
             }}
           >
-            Painel Amafresp RH
+            <img src={Logo} alt='Amafresp RH'  width='120px' className='filterLogo' />
           </div>
         </SidebarHeader>
         <SidebarContent style={{height:'100vh'}}>
@@ -76,8 +72,9 @@ const NavbarConta = () =>{
             >
               <MenuItem><Link to='CarteirinhaVirtual' onClick={() => handleToggleSidebar(false)}>Carteirinha Virtual</Link></MenuItem>
               <MenuItem><Link to='DadosCadastraisPinSS' onClick={() => handleToggleSidebar(false)} >Dados cadastrais(PIN-SS)</Link></MenuItem>
-              <MenuItem><Link to='RedeCredenciada' onClick={() => handleToggleSidebar(false)}>Rede Credênciada</Link></MenuItem>
+              <MenuItem><Link to='RedeCredenciada' onClick={() => handleToggleSidebar(false)}>Rede Credenciada</Link></MenuItem>
             </SubMenu>
+
             <SubMenu
               title='Demonstrativos'
               icon={<FaFileInvoice />}
@@ -85,6 +82,10 @@ const NavbarConta = () =>{
               <MenuItem>Extrato de uso e coparticipação</MenuItem>
 
             </SubMenu>
+
+            <Menu iconShape="circle">
+              <MenuItem icon={<FaPhone />} ><Link to='Contatos' onClick={() => handleToggleSidebar(false)}>Contatos</Link></MenuItem>
+            </Menu>
           </Menu>
         </SidebarContent>
 

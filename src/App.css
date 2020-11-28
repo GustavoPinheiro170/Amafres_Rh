@@ -59,7 +59,7 @@ a {
 
 }
 .container {
-    max-width: 50rem;
+    max-width: 90%;
     padding: 0 1rem;
     margin: 0 auto;
 }
@@ -141,5 +141,11 @@ a {
 @media(min-width:800px){
     body {
         padding-top: 0 !important;
+    }
+
+}
+@media (max-width:800px){
+    .container-internal {
+        padding-top: 0rem;
     }
 }
